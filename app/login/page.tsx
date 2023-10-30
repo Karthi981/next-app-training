@@ -11,13 +11,15 @@ const LoginPage: React.FC = () => {
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const { email, password, emailerror } = formData;
+
   useEffect(() => {
     validateForm();
   }, [email, password]);
 
   function validateForm() {
     let errors: { [key: string]: string } = {};
-
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!email) {
       errors.email = "Email is required.";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -26,8 +28,9 @@ const LoginPage: React.FC = () => {
 
     if (!password) {
       errors.password = "Password is required.";
-    } else if (password.length < 6) {
-      errors.password = "Password must be at least 6 characters.";
+    } else if (!passwordRegex.test(password)) {
+      errors.password =
+        "Password must be at least 8 characters One Special,Uppercase character and Number";
     }
 
     setErrors(errors);
@@ -57,10 +60,10 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center ">
-      <div className="bg-orange-200 p-8 rounded shadow-lg w-96">
+      <div className="bg-orange-200 p-8 rounded shadow-lg w-[450px]">
         <h1 className="text-2xl font-semibold mb-4">Login</h1>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="email" className="block text-">
               Email:
             </label>
@@ -75,7 +78,7 @@ const LoginPage: React.FC = () => {
             />
           </div>
           {errors.email && <p className="text-red-500">{errors.email}</p>}
-          <div className="mb-4">
+          <div className="mb-2">
             <label htmlFor="password" className="block text-gray-600">
               Password:
             </label>

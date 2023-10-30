@@ -57,7 +57,7 @@ function SearchBar() {
         isOpen={open}
       >
         {filteredItems.map((list) => (
-          <div className=" flex-row w-96">
+          <div className=" flex-row w-[800px]">
             <CommandPalette.List key={list.id} heading={list.heading}>
               {list.items.map(({ id, ...rest }) => (
                 <CommandPalette.ListItem
