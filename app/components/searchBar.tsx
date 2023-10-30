@@ -49,7 +49,7 @@ function SearchBar() {
     search
   );
   return (
-    <div className="" onClick={() => setOpen(true)}>
+    <div className="bg-slate-600 flex-auto" onClick={() => setOpen(true)}>
       <CommandPalette
         onChangeSearch={setSearch}
         onChangeOpen={setOpen}
