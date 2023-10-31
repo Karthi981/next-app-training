@@ -1,6 +1,7 @@
 // pages/login.tsx
 "use client";
 import React, { useState, useEffect } from "react";
+import { Tooltip, Button } from "@nextui-org/react";
 
 const LoginPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ const LoginPage: React.FC = () => {
     validateForm();
   }, [email, password]);
 
-  function validateForm() {
+  const validateForm = () => {
     let errors: { [key: string]: string } = {};
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -34,7 +35,7 @@ const LoginPage: React.FC = () => {
     }
 
     setErrors(errors);
-  }
+  };
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     type: string
@@ -77,7 +78,7 @@ const LoginPage: React.FC = () => {
               className="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500"
             />
           </div>
-          {errors.email && <p className="text-red-500">{errors.email}</p>}
+          {email != "" && <p className="text-red-500">{errors.email}</p>}
           <div className="mb-2">
             <label htmlFor="password" className="block text-gray-600">
               Password:
@@ -92,7 +93,24 @@ const LoginPage: React.FC = () => {
               className="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500"
             />
           </div>
-          {errors.password && <p className="text-red-500">{errors.password}</p>}
+          <div className="flex flex-row">
+            <div>
+              {" "}
+              {password != "" && (
+                <p className="text-red-500">{errors.password}</p>
+              )}
+            </div>
+            <div>
+              <Tooltip
+                content="Password must be at least 8 characters One Special,Uppercase character and Number"
+                placement="right-end"
+                key={"right-end"}
+              >
+                <Button>i</Button>
+              </Tooltip>
+            </div>
+          </div>
+
           <div className="flex items-center mb-4">
             <input
               type="checkbox"
