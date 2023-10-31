@@ -49,26 +49,28 @@ function SearchBar() {
     search
   );
   return (
-    <CommandPalette
-      onChangeSearch={setSearch}
-      onChangeOpen={setOpen}
-      search={search}
-      isOpen={open}
-    >
-      {filteredItems.map((list) => (
-        <div className=" flex-auto">
-          <CommandPalette.List key={list.id} heading={list.heading}>
-            {list.items.map(({ id, ...rest }) => (
-              <CommandPalette.ListItem
-                key={id}
-                index={getItemIndex(filteredItems, id)}
-                {...rest}
-              />
-            ))}
-          </CommandPalette.List>
-        </div>
-      ))}
-    </CommandPalette>
+    <div className="ring-black">
+      <CommandPalette
+        onChangeSearch={setSearch}
+        onChangeOpen={setOpen}
+        search={search}
+        isOpen={open}
+      >
+        {filteredItems.map((list) => (
+          <div className=" flex-auto ring-black">
+            <CommandPalette.List key={list.id} heading={list.heading}>
+              {list.items.map(({ id, ...rest }) => (
+                <CommandPalette.ListItem
+                  key={id}
+                  index={getItemIndex(filteredItems, id)}
+                  {...rest}
+                />
+              ))}
+            </CommandPalette.List>
+          </div>
+        ))}
+      </CommandPalette>
+    </div>
   );
 }
 
