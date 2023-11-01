@@ -1,4 +1,5 @@
 "use client";
+import { randomInt } from "crypto";
 import { list } from "postcss";
 import React from "react";
 import { useState } from "react";
@@ -49,28 +50,26 @@ function SearchBar() {
     search
   );
   return (
-    <div className="ring-black">
-      <CommandPalette
-        onChangeSearch={setSearch}
-        onChangeOpen={setOpen}
-        search={search}
-        isOpen={open}
-      >
-        {filteredItems.map((list) => (
-          <div className=" flex-auto ring-black">
-            <CommandPalette.List key={list.id} heading={list.heading}>
-              {list.items.map(({ id, ...rest }) => (
-                <CommandPalette.ListItem
-                  key={id}
-                  index={getItemIndex(filteredItems, id)}
-                  {...rest}
-                />
-              ))}
-            </CommandPalette.List>
-          </div>
-        ))}
-      </CommandPalette>
-    </div>
+    <CommandPalette
+      onChangeSearch={setSearch}
+      onChangeOpen={setOpen}
+      search={search}
+      isOpen={open}
+    >
+      {filteredItems.map((list, index) => (
+        <div className=" flex-auto ring-black">
+          <CommandPalette.List key={list.id} heading={list.heading}>
+            {list.items.map((item) => (
+              <CommandPalette.ListItem
+                key={Math.random()}
+                index={getItemIndex(filteredItems, item.id)}
+                {...item}
+              />
+            ))}
+          </CommandPalette.List>
+        </div>
+      ))}
+    </CommandPalette>
   );
 }
 
