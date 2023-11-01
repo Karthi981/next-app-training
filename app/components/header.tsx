@@ -25,7 +25,7 @@ const Title: React.FC = () => {
             <button className="hover:underline focus:outline-none px-2 py-2 ">
               Courses
             </button>
-            <div className="absolute hidden group-hover:block right-0 mt-2 bg-white border border-gray-300 w-48 shadow-md">
+            <div className="absolute hidden group-hover:block right-0 mt-2 bg-white/0 border border-gray-300 w-48 shadow-md">
               <a
                 href="#"
                 className="block px-4 py-2 text-gray-800 hover:bg-blue-100"

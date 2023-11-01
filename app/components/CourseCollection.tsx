@@ -9,10 +9,10 @@ const CourseCollection: React.FC = () => {
   ));
 
   return (
-    <div className="absolute top-[450px] items-center justify-center grid">
+    <div className="absolute top-[760px] items-center justify-center grid">
       <div>
         <div className="font-bold text-3xl pb-2">Course Collections</div>
-        <div className="grid grid-cols-4 gap-4">{cards}</div>
+        <div className="grid grid-cols-4 gap-6">{cards}</div>
       </div>
     </div>
   );
