@@ -1,17 +1,19 @@
+"use client";
+import { NextUIProvider } from "@nextui-org/react";
 import CourseCollection from "./components/CourseCollection";
 import PopularCourses from "./components/PopularCourses";
 import TrendingComponents from "./components/TrendingComponents";
-import Title from "./components/header";
+import Title from "./components/FirstTitle";
 import SearchBar from "./components/searchBar";
 
 export default function Home() {
   return (
     <main>
-      <div className=" grid grid-flow-row items-center justify-center">
+      <NextUIProvider className=" grid grid-flow-row items-center justify-center  min-w-full">
         <div>
           <Title />
         </div>
-        <div className="  py-4 flex items-center justify-center  min-h-max w-[1200px] min-w-fit]">
+        <div className="  py-4 flex items-center justify-center  min-h-max  max-w-fit]">
           <div className="  relative ">
             <div className="text-center text-3xl font-bold p-2 ">
               Find the perfect online course for you
@@ -28,7 +30,7 @@ export default function Home() {
           <CourseCollection />
           <PopularCourses />
         </div>
-      </div>
+      </NextUIProvider>
     </main>
   );
 }

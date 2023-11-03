@@ -1,10 +1,11 @@
 import React from "react";
-import RatingCard from "./Rating Card";
+
+import NewRatingCards from "./NewRatingCards";
 
 const PopularCourses: React.FC = () => {
   const cards = Array.from({ length: 12 }).map((_, index) => (
     <div key={index}>
-      <RatingCard />
+      <NewRatingCards />
     </div>
   ));
 

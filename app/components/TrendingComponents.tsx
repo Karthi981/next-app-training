@@ -17,9 +17,9 @@ const TrendingComponents: React.FC = () => {
   ];
 
   return (
-    <div className="absolute top-[520px]">
+    <div className="absolute top-[560px]">
       <h1 className="font-bold py-3 text-3xl">Trending Courses</h1>
-      <div className="grid grid-cols-8 grid-rows-2 px-2">
+      <div className="grid grid-cols-9 grid-rows-2 gap-3 min-w-fit w-[1250px]">
         {Names.map((name) => (
           <TrendingButtons Name={name}></TrendingButtons>
         ))}

@@ -17,7 +17,7 @@ const RatingCard: React.FC = () => {
             Intro Into Data Science
           </h5>
         </a>
-        <div className="border-b-3 border-solid "></div>
+        <div className="border-t-2 border-gray-400 border-solid "></div>
         <div className="h-[80px] grid grid-cols-2 min-w-fit w-32">
           <div>
             <RatingWithText />
