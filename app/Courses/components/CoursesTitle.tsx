@@ -6,7 +6,7 @@ import SubjectDropdown from "./SubjectDropdown";
 
 const CourseTitle: React.FC = () => {
   return (
-    <div className=" text-gray-600  shadow-md w-[1200px] h-16">
+    <div className=" text-gray-600  shadow-md w-[1200px] h-16 relative">
       <div className="container mx-auto flex justify-between items-center px-4 py-2 ">
         <div className="text-2xl font-bold grid grid-flow-col">
           <img
@@ -48,6 +48,12 @@ const CourseTitle: React.FC = () => {
                 className="block px-4 py-2 text-gray-800 hover:bg-blue-100 bg-white"
               >
                 Best Courses
+              </a>
+              <a
+                href="#"
+                className="block px-4 py-2 text-gray-800 hover:bg-blue-100 bg-white"
+              >
+                Submit Courses
               </a>
             </div>
           </div>

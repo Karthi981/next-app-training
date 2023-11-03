@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchBars = () => {
   return (
-    <div className="w-[350px] absolute left-[340px] py-4 ">
+    <div className="w-[350px] absolute left-[250px] py-4 ">
       <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white  ">
         Search
       </label>

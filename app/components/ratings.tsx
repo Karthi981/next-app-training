@@ -12,7 +12,7 @@ const RatingWithText: React.FC = () => {
           <Rating
             value={4}
             onChange={(value: number) => setRated(value)}
-            className="grid grid-flow-col w-24"
+            className="grid grid-flow-col w-24 text-yellow-500"
           />
         </div>
         <div className="pl-16 text-gray-500">{rated}.2</div>

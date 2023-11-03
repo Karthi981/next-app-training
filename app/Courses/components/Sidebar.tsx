@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebarcheckbox from "./Sidebarcheckbox";
+import SideBarRating from "./SideBarRating";
 
 const RatingSideBar = () => {
   return (
@@ -16,6 +17,23 @@ const RatingSideBar = () => {
         <Sidebarcheckbox Name="Spanish (6)"></Sidebarcheckbox>
         <Sidebarcheckbox Name=" Hindi (2)"></Sidebarcheckbox>
         <Sidebarcheckbox Name="Portuguese (2)"></Sidebarcheckbox>
+        <h1 className="text-gray-600  ">Ratings</h1>
+        <div className="grid grid-flow-col relative ">
+          <SideBarRating />
+          <div className="absolute left-28 text-gray-400 text-xs">&Up</div>
+        </div>
+        <div className="grid grid-flow-col relative">
+          <SideBarRating />
+          <div className="absolute left-28 text-gray-400 text-xs">&Up</div>
+        </div>
+        <div className="grid grid-flow-col relative">
+          <SideBarRating />
+          <div className="absolute left-28 text-gray-400 text-xs">&Up</div>
+        </div>
+        <div className="grid grid-flow-col relative pb-4">
+          <SideBarRating />
+          <div className="absolute left-28 text-gray-400 text-xs">&Up</div>
+        </div>
       </div>
     </div>
   );

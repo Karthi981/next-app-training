@@ -2,7 +2,7 @@ import React from "react";
 
 const Subjects = () => {
   return (
-    <div className="grid grid-flow-col space-x-7 py-8 items-start justify-start">
+    <div className="grid grid-flow-col space-x-7 py-8 items-start justify-start absolute left-[300px]">
       <div className="grid grid-flow-col ">
         <img
           className=" h-[48px]"
