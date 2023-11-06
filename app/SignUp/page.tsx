@@ -4,10 +4,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 type FormData = {
-  email: string;
-  password: string;
-  confirmPassword: string;
-  phoneNumber: string;
+  Email: string;
+  Password: string;
+  ConfirmPassword: string;
+  PhoneNumber: string;
 };
 
 const SignupPage = () => {
@@ -26,7 +26,7 @@ const SignupPage = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-green-600 md:text-2xl dark:text-white ">
               Create An account
             </h1>
-            <form onSubmit={() => onSubmit} className="space-y-4 md:space-y-6">
+            <form onSubmit={onSubmit} className="space-y-4 md:space-y-6">
               <div>
                 <label
                   className="block mb-2 text-sm font-medium text-green-600 dark:text-white"
@@ -35,7 +35,7 @@ const SignupPage = () => {
                   Email
                 </label>
                 <input
-                  {...register("email", {
+                  {...register("Email", {
                     pattern: {
                       value: /\S+@\S+\.\S+/,
                       message: "Email is Invalid",
@@ -45,14 +45,14 @@ const SignupPage = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@company.com"
                 />
-                <>{errors.email?.message}</>
+                <p>{errors.Email?.message}</p>
               </div>
               <div>
                 <label className="block mb-2 text-sm font-medium text-green-600 dark:text-white">
                   Password
                 </label>
                 <input
-                  {...register("password", {
+                  {...register("Password", {
                     required: "Password is required",
                     pattern: {
                       value:
@@ -67,14 +67,14 @@ const SignupPage = () => {
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
-                <>{errors.password?.message}</>
+                <p>{errors.Password?.message}</p>
               </div>
               <div>
                 <label className="block mb-2 text-sm font-medium text-green-600 dark:text-white">
                   Confirm password
                 </label>
                 <input
-                  {...register("confirmPassword", {
+                  {...register("ConfirmPassword", {
                     required: "Password is required",
                   })}
                   type="confirm-password"
@@ -100,7 +100,7 @@ const SignupPage = () => {
                     Phone Number
                   </label>
                   <input
-                    {...register("phoneNumber", {
+                    {...register("PhoneNumber", {
                       required: "phoneNumber is required",
                       pattern: {
                         value: /^([+]\d{2}[ ])?\d{10}$/,
@@ -110,7 +110,7 @@ const SignupPage = () => {
                     })}
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
-                  <>{errors.phoneNumber?.message}</>
+                  <p>{errors.PhoneNumber?.message}</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -130,12 +130,11 @@ const SignupPage = () => {
                 type="submit"
                 className="w-full bg-blue-400 py-2 rounded-xl"
                 disabled={
-                  !watch("email") ||
-                  !watch("password") ||
-                  !!errors.email ||
-                  !!errors.password ||
-                  !watch("phoneNumber") ||
-                  !!errors.phoneNumber
+                  !watch("Email") ||
+                  !watch("Password") ||
+                  !!errors.Email ||
+                  !!errors.Password ||
+                  !watch("PhoneNumber")
                 }
               >
                 Create an Account
