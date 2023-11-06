@@ -1,7 +1,7 @@
 "use client";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
-import { Tooltip, Button } from "@nextui-org/react";
-import { LightBulbIcon } from "@heroicons/react/20/solid";
+import { Tooltip } from "@nextui-org/react";
+
 type FormData = {
   email: string;
   password: string;

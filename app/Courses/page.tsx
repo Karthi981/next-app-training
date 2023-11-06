@@ -18,7 +18,7 @@ const CoursesPage = () => {
           <div className="grid grid-flow-row space-x-4">
             <Subjects />
 
-            <div className="absolute left-72 top-36">
+            <div className=" ">
               <CourseCollections />
             </div>
           </div>
