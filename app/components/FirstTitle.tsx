@@ -49,11 +49,13 @@ const Title: React.FC = () => {
               </a>
             </div>
           </div>
-          <a href="#" className="hover:underline px-2 py-2 ">
+          <Link href="/SignIn" className="hover:underline px-2 py-2 ">
             Login
-          </a>
+          </Link>
           <div className=" px-2 py-2 text-base font-semibold bg-red-500 text-white rounded-5 border-1 border-red-500 uppercase tracking-wider rounded-md">
-            <button>Sign up</button>
+            <Link href="/SignUp">
+              <button>Sign up</button>
+            </Link>
           </div>
         </div>
       </div>

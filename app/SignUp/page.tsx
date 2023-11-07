@@ -2,6 +2,8 @@
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { formDataAtom } from "./SignUpStore";
+import { useAtom } from "jotai";
 
 type FormData = {
   Email: string;
@@ -11,13 +13,23 @@ type FormData = {
 };
 
 const SignupPage = () => {
+  const [formData, setFormData] = useAtom(formDataAtom);
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm<FormData>();
-  const onSubmit = handleSubmit((data) => console.log(data));
+
+  const onSubmit = handleSubmit((data) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      email: data.Email,
+      password: data.Password,
+      confirmPassword: data.ConfirmPassword,
+      phoneNumber: data.PhoneNumber,
+    }));
+  });
   return (
     <div className="bg-orange-300 dark:bg-gray-900 ">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -61,9 +73,6 @@ const SignupPage = () => {
                         "At least one Number,Uppercase and Special Symbol required",
                     },
                   })}
-                  type="password"
-                  name="password"
-                  id="password"
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
@@ -77,9 +86,6 @@ const SignupPage = () => {
                   {...register("ConfirmPassword", {
                     required: "Password is required",
                   })}
-                  type="confirm-password"
-                  name="confirm-password"
-                  id="confirm-password"
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
@@ -126,19 +132,14 @@ const SignupPage = () => {
                   </label>
                 </div>
               </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-400 py-2 rounded-xl"
-                disabled={
-                  !watch("Email") ||
-                  !watch("Password") ||
-                  !!errors.Email ||
-                  !!errors.Password ||
-                  !watch("PhoneNumber")
-                }
-              >
-                Create an Account
-              </button>
+              <Link href="/IntroPage">
+                <button
+                  type="submit"
+                  className="w-full bg-blue-400 py-2 rounded-xl"
+                >
+                  Create an Account
+                </button>
+              </Link>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?{" "}
                 <Link
