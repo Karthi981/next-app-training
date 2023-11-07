@@ -6,7 +6,7 @@ import {
   todosAtom,
   toggleTodoAtom,
   updateTodoAtom,
-} from "../Store";
+} from "@/app/Store";
 
 const TodosList = () => {
   const [todos] = useAtom(todosAtom);
