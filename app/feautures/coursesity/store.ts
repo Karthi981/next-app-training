@@ -8,4 +8,7 @@ const initialProfileData ={
 }
 
 
-export const profileData = atom(initialProfileData);
+export const profileDataAtom = atom({firstName:"",
+lastName:"",
+email:"",
+bio:""});

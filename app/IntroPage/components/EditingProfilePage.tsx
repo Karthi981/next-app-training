@@ -1,4 +1,5 @@
-import { profileData } from "@/app/feautures/coursesity/store";
+"use client";
+import { profileDataAtom } from "@/app/feautures/coursesity/store";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,8 +8,29 @@ import { useAtom } from "jotai";
 import React from "react";
 
 const EditingProfile = () => {
-  const [profile, setProfile] = useAtom(profileData);
+  const [profile, setProfile] = useAtom(profileDataAtom);
 
+  const handleData = (
+    evt: React.ChangeEvent<HTMLInputElement>,
+    type: string
+  ) => {
+    switch (type) {
+      case "firstName":
+        setProfile({ ...profile, firstName: evt.target.value });
+        break;
+      case "lastName":
+        setProfile({ ...profile, lastName: evt.target.value });
+        break;
+      case "email":
+        setProfile({ ...profile, email: evt.target.value });
+        break;
+      case "bio":
+        setProfile({ ...profile, bio: evt.target.value });
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <div className="justify-end items-end">
       <div className="flex flex-col items-center  w-[600px]">
@@ -30,6 +52,7 @@ const EditingProfile = () => {
               type="First Name"
               placeholder="First Name"
               className="w-64 border-solid border-1 border-blue-700"
+              onChange={(evt) => handleData(evt, "firstName")}
             />
           </div>
           <div className="">
@@ -38,6 +61,7 @@ const EditingProfile = () => {
               type="Last Name"
               placeholder="Last Name"
               className="w-64 border-solid border-1 border-blue-700"
+              onChange={(evt) => handleData(evt, "lastName")}
             />
           </div>
         </div>
@@ -48,6 +72,7 @@ const EditingProfile = () => {
               type="email"
               placeholder="Email"
               className="w-64 border-solid border-1 border-blue-700"
+              onChange={(evt) => handleData(evt, "email")}
             />
           </div>
           <div className="w-64"></div>
@@ -58,6 +83,7 @@ const EditingProfile = () => {
             type="bio"
             placeholder="Bio"
             className="w-full border-solid border-1 border-blue-700"
+            onChange={(evt) => handleData(evt, "bio")}
           />
         </div>
       </div>

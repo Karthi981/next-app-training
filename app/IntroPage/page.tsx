@@ -2,8 +2,6 @@ import React from "react";
 import CourseTitle from "../Courses/components/CoursesTitle";
 import ProfileSideBar from "./components/ProfileSideBar";
 import EditingProfile from "./components/EditingProfilePage";
-import { useAtom } from "jotai";
-import { profileData } from "../feautures/coursesity/store";
 
 const IntroPage = () => {
   return (

@@ -57,7 +57,7 @@ const SignupPage = () => {
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@company.com"
                 />
-                <p>{errors.Email?.message}</p>
+                <p className="text-red-400 py-2">{errors.Email?.message}</p>
               </div>
               <div>
                 <label className="block mb-2 text-sm font-medium text-green-600 dark:text-white">
@@ -76,7 +76,7 @@ const SignupPage = () => {
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
-                <p>{errors.Password?.message}</p>
+                <p className="text-red-400 py-2">{errors.Password?.message}</p>
               </div>
               <div>
                 <label className="block mb-2 text-sm font-medium text-green-600 dark:text-white">
@@ -116,7 +116,9 @@ const SignupPage = () => {
                     })}
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
-                  <p>{errors.PhoneNumber?.message}</p>
+                  <p className="text-red-400 py-2">
+                    {errors.PhoneNumber?.message}
+                  </p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -132,21 +134,27 @@ const SignupPage = () => {
                   </label>
                 </div>
               </div>
-              <Link href="/IntroPage">
-                <button
-                  type="submit"
-                  className="w-full bg-blue-400 py-2 rounded-xl"
-                >
-                  Create an Account
-                </button>
-              </Link>
+
+              <button
+                type="submit"
+                disabled={
+                  !watch("Email") ||
+                  !watch("ConfirmPassword") ||
+                  !watch("PhoneNumber") ||
+                  !watch("Password")
+                }
+                className="w-full bg-blue-400 py-2 rounded-xl"
+              >
+                Create an Account
+              </button>
+
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?{" "}
                 <Link
                   href="/SignIn"
                   className="font-medium text-primary-600 hover:underline dark:text-primary-500 hover:text-green-500"
                 >
-                  Signin here
+                  Sign In here
                 </Link>
               </p>
             </form>
