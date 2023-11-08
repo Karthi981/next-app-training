@@ -45,7 +45,7 @@ const ResetPage = () => {
   return (
     <div className="min-h-screen items-start justify-center flex mt-8">
       <form onSubmit={onSubmit}>
-        <div className="flex flex-col bg-slate-100 w-[700px] px-4 py-4 border-solid border-2 border-slate-200 ">
+        <div className="flex flex-col bg-red-100 w-[700px] px-4 py-4 border-solid border-2 border-red-200 ">
           <p className="text-xl text-black underline pb-8">
             {firstName}Do you want to reset your Password
           </p>
