@@ -18,7 +18,13 @@ const SignIn = () => {
     watch,
     formState: { errors },
   } = useForm<FormData>();
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit((data) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      email: data.Email,
+      password: data.Password,
+    }));
+  });
 
   return (
     <section className="bg-orange-300 dark:bg-gray-900">
