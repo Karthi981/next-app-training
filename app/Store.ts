@@ -1,10 +1,12 @@
-import { atom } from "jotai";
+import { atom, createStore } from "jotai";
 
 export interface Todo {
     id: number;
     text: string;
     done: boolean;
   }
+
+  export const myStore= createStore();
   
   export const updateTodo = (todos: Todo[], id: number, text: string): Todo[] =>
     todos.map((todo) => ({
@@ -55,4 +57,28 @@ export interface Todo {
     set(todosAtom,toggleTodo(get(todosAtom),id));
  }));
 
+ const cartAtom = atom({
+   id: 0,
+   quantity: 0,
+ })
+ export { cartAtom }
 
+ const profileDataAtom = atom({firstName:"",
+lastName:"",
+email:"",
+bio:""});
+
+export{profileDataAtom}
+
+
+const initialFormData = {
+  email: '',
+  password: '',
+  confirmPassword: '',
+  phoneNumber:''
+};
+
+// Create a Jotai atom for the form data
+const formDataAtom = atom(initialFormData);
+
+export {formDataAtom}

@@ -1,7 +1,9 @@
 "use client";
+import { useAtom } from "jotai";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { formDataAtom } from "../Store";
 
 type FormData = {
   Email: string;
@@ -9,6 +11,7 @@ type FormData = {
 };
 
 const SignIn = () => {
+  const [formData, setFormData] = useAtom(formDataAtom);
   const {
     register,
     handleSubmit,

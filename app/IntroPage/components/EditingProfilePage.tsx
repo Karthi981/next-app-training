@@ -1,5 +1,6 @@
 "use client";
-import { profileDataAtom } from "@/app/feautures/coursesity/store";
+
+import { profileDataAtom } from "@/app/Store";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

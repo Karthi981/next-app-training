@@ -2,6 +2,7 @@ import React from "react";
 import CourseTitle from "../Courses/components/CoursesTitle";
 import ProfileSideBar from "./components/ProfileSideBar";
 import EditingProfile from "./components/EditingProfilePage";
+import Link from "next/link";
 
 const IntroPage = () => {
   return (
@@ -13,6 +14,7 @@ const IntroPage = () => {
         <ProfileSideBar />
         <EditingProfile />
       </section>
+      <Link href="/AdminPage">Admin Page</Link>
     </div>
   );
 };

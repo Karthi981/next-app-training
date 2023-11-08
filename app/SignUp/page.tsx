@@ -2,8 +2,8 @@
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { formDataAtom } from "./SignUpStore";
 import { useAtom } from "jotai";
+import { formDataAtom } from "../Store";
 
 type FormData = {
   Email: string;

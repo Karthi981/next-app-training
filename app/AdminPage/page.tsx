@@ -7,13 +7,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/components/ui/use-toast";
 import React from "react";
 import { useForm } from "react-hook-form";
-import {
-  detailsAtom,
-  myStore,
-  profileDataAtom,
-} from "../feautures/coursesity/store";
 import { countAtom } from "../feautures/counter/store";
 import { useAtom } from "jotai";
+import { profileDataAtom } from "../Store";
 
 type FormData = {
   email: string;
@@ -21,7 +17,7 @@ type FormData = {
 };
 
 const AdminPage = () => {
-  const det = myStore.get(detailsAtom);
+  const [details, setDetails] = useAtom(profileDataAtom);
   const { toast } = useToast();
   const [count, setCount] = useAtom(countAtom);
   const {
@@ -30,7 +26,7 @@ const AdminPage = () => {
     watch,
     formState: { errors },
   } = useForm<FormData>();
-  const { email, firstName } = det;
+  const { email, firstName } = details;
   const onSubmit = handleSubmit((data) => {
     console.log(data);
     toast({
