@@ -19,7 +19,6 @@ type FormData = {
 const AdminPage = () => {
   const [details, setDetails] = useAtom(profileDataAtom);
   const { toast } = useToast();
-  const [count, setCount] = useAtom(countAtom);
   const {
     register,
     handleSubmit,
@@ -75,7 +74,7 @@ const AdminPage = () => {
               type="submit"
               className="px-4 py-4 w-48"
             >
-              {"" + count}
+              Send Verification
             </Button>
             <Toaster />
           </div>
