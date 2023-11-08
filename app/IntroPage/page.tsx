@@ -3,6 +3,7 @@ import CourseTitle from "../Courses/components/CoursesTitle";
 import ProfileSideBar from "./components/ProfileSideBar";
 import EditingProfile from "./components/EditingProfilePage";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const IntroPage = () => {
   return (
@@ -13,8 +14,12 @@ const IntroPage = () => {
       <section className="flex flex-row h-[600px] py-8 ">
         <ProfileSideBar />
         <EditingProfile />
+        <Button className="bg-red-400">
+          <Link className="text-2xl text-black-500" href="/AdminPage">
+            Admin Page
+          </Link>
+        </Button>
       </section>
-      <Link href="/AdminPage">Admin Page</Link>
     </div>
   );
 };
